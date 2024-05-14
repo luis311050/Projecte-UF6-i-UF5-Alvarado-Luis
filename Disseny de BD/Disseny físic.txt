@@ -42,7 +42,7 @@ CREATE TABLE `usuarios` (
 
 CREATE TABLE `transacciones` (
   `ID_Transaccion` int NOT NULL AUTO_INCREMENT,
-  `ID_Cliente` int DEFAULT NULL,
+   `ID_Cliente` int DEFAULT NULL,
   `Titular` varchar(200) DEFAULT NULL,
   `NumeroCuenta` int DEFAULT NULL,
   `TipoTransaccion` enum('DEPOSITO','RETIRO','TRANSFERENCIA') DEFAULT NULL,
@@ -51,13 +51,10 @@ CREATE TABLE `transacciones` (
   `SaldoAnterior` decimal(15,2) DEFAULT NULL,
   `SaldoActual` decimal(15,2) DEFAULT NULL,
   PRIMARY KEY (`ID_Transaccion`),
-  KEY `ID_Cliente` (`ID_Cliente`),
-  KEY `NumeroCuenta` (`NumeroCuenta`),
   KEY `CuentaDestino` (`CuentaDestino`),
-  CONSTRAINT `transacciones_ibfk_1` FOREIGN KEY (`ID_Cliente`) REFERENCES `clientes` (`ID_Cliente`),
-  CONSTRAINT `transacciones_ibfk_2` FOREIGN KEY (`NumeroCuenta`) REFERENCES `cuentas_bancarias` (`NumeroCuenta`),
+  KEY `Titular` (`Titular`),
   CONSTRAINT `transacciones_ibfk_3` FOREIGN KEY (`CuentaDestino`) REFERENCES `cuentas_bancarias` (`NumeroCuenta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `administradores` (`Nombre`, `Apellido`, `Telefono`, `Correo`, `Username`, `Contraseña`) 
 VALUES ('NombreDelAdmin', 'ApellidoDelAdmin', '123456789', 'admin@example.com', 'admin', '1234');
