@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cajero.TertiaryController">
+   <children>
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="108.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BBVA_2019.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="confirmarButton" layoutX="236.0" layoutY="323.0" mnemonicParsing="false" onAction="#confirmarOperacion" prefHeight="36.0" prefWidth="89.0" text="Confirmar" />
+      <TextField fx:id="importeTextField" layoutX="185.0" layoutY="200.0" />
+      <Button fx:id="cancelarButton" layoutX="64.0" layoutY="323.0" mnemonicParsing="false" onAction="#cancelarOperacion" prefHeight="36.0" prefWidth="89.0" text="Salir" />
+      <Label fx:id="importe" layoutX="67.0" layoutY="200.0" text="Importe" />
+      <Label fx:id="nombre" layoutX="38.0" layoutY="258.0" text="Numero de cuenta" />
+      <TextField fx:id="cuentaTextField" layoutX="185.0" layoutY="254.0" />
+      <ComboBox fx:id="cuentasComboBox" layoutX="185.0" layoutY="156.0" prefWidth="150.0" promptText=" Cuenta Cliente" />
+      <Label fx:id="cuenta" layoutX="69.0" layoutY="160.0" text="Cuenta" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="441.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cajero.AdminController">
+   <children>
+      <Button fx:id="add_client" layoutX="13.0" layoutY="105.0" mnemonicParsing="false" onAction="#crear_cliente" prefHeight="47.0" prefWidth="124.0" text="Crear Cliente" />
+      <Button fx:id="add_accounts" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#crear_cuenta" prefHeight="47.0" prefWidth="124.0" text="Crear Cuenta" />
+      <Button fx:id="change" layoutX="13.0" layoutY="328.0" mnemonicParsing="false" onAction="#cambiarPin" prefHeight="47.0" prefWidth="124.0" text="Cambiar Pin" />
+      <Button fx:id="delete_accounts" layoutX="241.0" layoutY="203.0" mnemonicParsing="false" onAction="#eliminarCuentaBancaria" prefHeight="47.0" prefWidth="124.0" text="Borrar Cuenta" />
+      <Button fx:id="delete_client" layoutX="241.0" layoutY="105.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="47.0" prefWidth="124.0" text="Borrar Cliente" />
+      <Button fx:id="exit" layoutX="241.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="47.0" prefWidth="124.0" text="Salir" />
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BBVA_2019.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

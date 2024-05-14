@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cajero.SecondaryController">
+   <children>
+      <Button fx:id="add" layoutX="13.0" layoutY="105.0" mnemonicParsing="false" onAction="#ingresarSaldo" prefHeight="47.0" prefWidth="124.0" text="Ingresar" />
+      <Button fx:id="consultar" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#consultarSaldo" prefHeight="47.0" prefWidth="124.0" text="Consultar Saldo" />
+      <Button fx:id="change" layoutX="13.0" layoutY="306.0" mnemonicParsing="false" onAction="#cambiarPin" prefHeight="47.0" prefWidth="124.0" text="Cambiar Pin" />
+      <Button fx:id="transferir" layoutX="241.0" layoutY="203.0" mnemonicParsing="false" onAction="#transferirSaldo" prefHeight="47.0" prefWidth="124.0" text="Transferir" />
+      <Button fx:id="retirar" layoutX="241.0" layoutY="105.0" mnemonicParsing="false" onAction="#retirarSaldo" prefHeight="47.0" prefWidth="124.0" text="Retirar" />
+      <Button fx:id="exit" layoutX="241.0" layoutY="306.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="47.0" prefWidth="124.0" text="Salir" />
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BBVA_2019.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

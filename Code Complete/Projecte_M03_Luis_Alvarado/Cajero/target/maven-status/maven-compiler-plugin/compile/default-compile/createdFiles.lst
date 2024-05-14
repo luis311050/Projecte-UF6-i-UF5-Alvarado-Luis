@@ -1,0 +1,17 @@
+Clases\Cliente.class
+Model\GestioDades.class
+Clases\CuentaBancaria.class
+Clases\Transaccion$TipoTransaccion.class
+Model\Connexio.class
+com\cajero\AdminController2.class
+com\cajero\SecondaryController.class
+Clases\EntidadBancaria.class
+Clases\Transaccion.class
+com\cajero\TertiaryController.class
+module-info.class
+Clases\CuentaBancaria$EstadoCuenta.class
+com\cajero\AdminController.class
+com\cajero\PrimaryController.class
+Clases\Usuario.class
+com\cajero\App.class
+Model\GestioAdmin.class
