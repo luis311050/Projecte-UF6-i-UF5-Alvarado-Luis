@@ -1,0 +1,66 @@
+CREATE TABLE `administradores` (
+  `ID_Administrador` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(100) NOT NULL,
+  `Apellido` varchar(100) NOT NULL,
+  `Telefono` varchar(20) DEFAULT NULL,
+  `Correo` varchar(100) DEFAULT NULL,
+  `Username` varchar(100) DEFAULT NULL,
+  `Contraseña` char(4) DEFAULT NULL,
+  PRIMARY KEY (`ID_Administrador`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `clientes` (
+  `ID_Cliente` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(100) DEFAULT NULL,
+  `Teléfono` varchar(20) DEFAULT NULL,
+  `Correo` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ID_Cliente`),
+  KEY `idx_nombre` (`Nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `cuentas_bancarias` (
+  `NumeroCuenta` int NOT NULL AUTO_INCREMENT,
+  `ID_Cliente` int DEFAULT NULL,
+  `Titular` varchar(200) DEFAULT NULL,
+  `TipoCuenta` varchar(50) DEFAULT NULL,
+  `Saldo` decimal(15,2) DEFAULT NULL,
+  `FechaApertura` date DEFAULT NULL,
+  `Estado` enum('ACTIVA','INACTIVA','BLOQUEADA','CERRADA') DEFAULT NULL,
+  PRIMARY KEY (`NumeroCuenta`),
+  KEY `Titular` (`ID_Cliente`),
+  KEY `fk_titular` (`Titular`),
+  CONSTRAINT `cuentas_bancarias_ibfk_1` FOREIGN KEY (`ID_Cliente`) REFERENCES `clientes` (`ID_Cliente`),
+  CONSTRAINT `fk_titular` FOREIGN KEY (`Titular`) REFERENCES `clientes` (`Nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `transacciones` (
+  `ID_Transaccion` int NOT NULL AUTO_INCREMENT,
+  `ID_Cliente` int DEFAULT NULL,
+  `Titular` varchar(200) DEFAULT NULL,
+  `NumeroCuenta` int DEFAULT NULL,
+  `TipoTransaccion` enum('DEPOSITO','RETIRO','TRANSFERENCIA') DEFAULT NULL,
+  `CuentaDestino` int DEFAULT NULL,
+  `Cantidad` decimal(15,2) DEFAULT NULL,
+  `SaldoAnterior` decimal(15,2) DEFAULT NULL,
+  `SaldoActual` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`ID_Transaccion`),
+  KEY `NumeroCuenta` (`NumeroCuenta`),
+  KEY `CuentaDestino` (`CuentaDestino`),
+  KEY `Titular` (`Titular`),
+  KEY `transacciones_ibfk_1` (`ID_Cliente`),
+  CONSTRAINT `transacciones_ibfk_1` FOREIGN KEY (`ID_Cliente`) REFERENCES `clientes` (`ID_Cliente`),
+  CONSTRAINT `transacciones_ibfk_2` FOREIGN KEY (`NumeroCuenta`) REFERENCES `cuentas_bancarias` (`NumeroCuenta`),
+  CONSTRAINT `transacciones_ibfk_3` FOREIGN KEY (`CuentaDestino`) REFERENCES `cuentas_bancarias` (`NumeroCuenta`),
+  CONSTRAINT `transacciones_ibfk_4` FOREIGN KEY (`Titular`) REFERENCES `clientes` (`Nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `usuarios` (
+  `ID_Usuario` int NOT NULL AUTO_INCREMENT,
+  `Username` varchar(100) DEFAULT NULL,
+  `Password` varchar(4) DEFAULT NULL,
+  `ID_Cliente` int DEFAULT NULL,
+  PRIMARY KEY (`ID_Usuario`),
+  UNIQUE KEY `ID_Cliente` (`ID_Cliente`),
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`ID_Cliente`) REFERENCES `clientes` (`ID_Cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
