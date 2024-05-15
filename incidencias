@@ -1,0 +1,6 @@
+incidencias
+1 al principio del proyecto me falla mucho el conect con el uso de varias guias lo arregle.
+2.al eliminar un cliente no se eliminaba el usuario, creado otro metodo lo supe resolver
+3.al elimnar un cliente se quedaba una cuenta sin cliente pero no se borraba asi que puese un viculante entre ambas tablas y una alerta general de "no se pudo eliminar el usuario"
+esto claro si el cliente no tiene una cuenta se borrar facilmente
+4.
